@@ -93,6 +93,8 @@ const getCart = (req,res)=>{
         },
         {
             $project:{
+                prodId:0,
+                userId:0,
                 status:0,
                 isDeleted:0,
                 updatedOn:0,
@@ -120,8 +122,8 @@ const getCart = (req,res)=>{
 
 }
 
-const updateCart=(req,res)=>{
-    cart.findOneAndUpdate(
+const updateCart=async (req,res)=>{
+   await  cart.findOneAndUpdate(
         {
             _id: new mongoose.Types.ObjectId(req.params.id)
         },
@@ -131,8 +133,9 @@ const updateCart=(req,res)=>{
           }
         }
     ).then((cartData) => {
-        console.log("cartData",cartData)
+        // console.log("cartData",cartData)
         res.status(200).json({
+            // console.log("cartData",cartData)
             status: true,
             msg: "update cart successfully",
             data: cartData
@@ -147,8 +150,8 @@ const updateCart=(req,res)=>{
 
 }
 
-const deleteCart = (req,res)=>{
-    cart.findOneAndDelete(
+const deleteCart = async (req,res)=>{
+    await cart.findOneAndDelete(
         {
             _id:new mongoose.Types.ObjectId(req.params.id)
         }
