@@ -6,7 +6,7 @@ const { getProd, searchProd, getProdByCat, getProdBySubCat } = require('../../Co
 const { addToCart, getCart, updateCart, deleteCart } = require('../../Controller/user/cart');
 const { addtoBuy, getBuyNow } = require('../../Controller/user/buyNow');
 // const { addToOrdProd} = require('../../Controller/user/orderProduct');
-const { checkOut } = require('../../Controller/user/orderDetails');
+const { checkOut,getOrder } = require('../../Controller/user/orderDetails');
 const {addToWishlist}=require('../../Controller/user/wishlist');
 
 
@@ -35,6 +35,8 @@ router.get('/get-buynow', getBuyNow);
 
 //orderDetails
 router.post('/checkOut',checkOut);
+router.get('/get-order',getOrder);
+
 
 //wishlist
 router.post("/add-to-wishlist",addToWishlist);
