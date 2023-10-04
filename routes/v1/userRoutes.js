@@ -7,6 +7,7 @@ const { addToCart, getCart, updateCart, deleteCart } = require('../../Controller
 const { addtoBuy, getBuyNow } = require('../../Controller/user/buyNow');
 // const { addToOrdProd} = require('../../Controller/user/orderProduct');
 const { checkOut } = require('../../Controller/user/orderDetails');
+const {addToWishlist}=require('../../Controller/user/wishlist');
 
 //product
 router.get('/get-Prod', getProd);
@@ -31,6 +32,9 @@ router.use(middleware)
 
 //orderDetails
 router.post('/checkOut',checkOut);
+
+//wishlist
+router.post("/add-to-wishlist",addToWishlist);
 
 
 
