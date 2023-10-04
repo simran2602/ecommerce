@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var middleware = require('../../routes/Service/Middleware').middleware;
 var {adminRegister,adminLogin} = require('../../Controller/Auth/admin')
 var {userRegister,userLogin} = require('../../Controller/Auth/user')
 //importing adminRoute.js 

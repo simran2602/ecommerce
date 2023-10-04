@@ -12,27 +12,29 @@ function generateToken(adminData) {
 
 //getTokenData
 function getTokenData(authorization) {
-    const adminData = user.findOne({
+
+    return admin.findOne({
         token: authorization
-    }).then((adminData) => {
-        res.status(200).json({
-            status: true,
-            msg: "token view successful",
-            data: adminData
-        })
-    }).catch((err) => {
-        res.status(500).json({
-            status: false,
-            msg: "authentication error",
-            error: err
-        })
     })
+    // .then((adminData) => {
+    //     res.status(200).json({
+    //         status: true,
+    //         msg: "token view successful",
+    //         data: adminData
+    //     })
+    // }).catch((err) => {
+    //     res.status(500).json({
+    //         status: false,
+    //         msg: "authentication error",
+    //         error: err
+    //     })
+    // })
 }
 
 const adminRegister = async (req, res) => {
     //console.log(req.body.password)
     const newPassword = await bcrypt.hash(req.body.password, saltRounds);
-    new admin({
+    await new admin({
         ...req.body,
         password: newPassword,
         token: generateToken(req.body)

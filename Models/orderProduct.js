@@ -1,43 +1,38 @@
 const mongoose = require('mongoose');
-// const crypto = require(crypto);
-// const invoiceId = crypto.randomUUID();
 const orderProductSchema = new mongoose.Schema({
+    orderId:{
+        type:mongoose.Schema.Types.ObjectId
+    },
     userId:{
         type:mongoose.Schema.Types.ObjectId
     },
-    
+    prodId:{
+        type:mongoose.Schema.Types.ObjectId
+    },    
     invoiceId:{
         type:Number
     },
     prodName:{
         type:String
     },
-    prodImg:{
-        type:String
-    },
-    prodDetails:{
-        type:String
-    },
+    itemDetails:{
+        type:Object
+    },     
     prodQty:{
         type:Number
-    },
-    prodPrice:{
-        type:Number
-    },
-    status:{
-        type:Boolean,
-        default:true
-    },
+    },    
+    orderStatus:{
+        type:String,
+        enum:['pending','shipped','cancelled','delivered']
+    },    
     isDeleted:{
         type:Boolean,
         default:false
     },
     createdOn:{
-        type:Date
-    },
-    updatedOn:{
         type:Date,
         default:new Date()
-    }
+    },
+   
 })
 module.exports = mongoose.model("orderProduct",orderProductSchema);

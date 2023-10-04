@@ -5,26 +5,27 @@ const user = require('../../Models/user');
 
 const saltRounds = 10;
 //generate token
-function generateToken(adminData) {
-    return jwt.sign(adminData, "adminData")
+function generateToken(userData) {
+    return jwt.sign(userData, "userData")
 }
 //getTokenData
 function getTokenData(authorization) {
-    const userData = user.findOne({
+    return user.findOne({
         token: authorization
-    }).then((userData) => {
-        res.status(200).json({
-            status: true,
-            msg: "token view successful",
-            data: userData
-        })
-    }).catch((err) => {
-        res.status(500).json({
-            status: false,
-            msg: "authentication error",
-            error: err
-        })
     })
+    // .then((userData) => {
+    //     res.status(200).json({
+    //         status: true,
+    //         msg: "token view successful",
+    //         data: userData
+    //     })
+    // }).catch((err) => {
+    //     res.status(500).json({
+    //         status: false,
+    //         msg: "authentication error",
+    //         error: err
+    //     })
+    // })
 }
 
 
@@ -33,6 +34,7 @@ const userRegister = async (req, res) => {
     new user({
         ...req.body,
         password: newPassword,
+        token: generateToken(req.body)
     })
         .save()
         .then((userData) => {
@@ -88,6 +90,7 @@ const userLogin = async (req, res) => {
 module.exports = {
     userRegister,
     userLogin,
-    getTokenData,generateToken
+    getTokenData,
+    generateToken
 
 }
