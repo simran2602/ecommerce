@@ -34,7 +34,7 @@ const checkOut = (req, res) => {
         });
         res.status(200).json({
             status:true,
-            msg:"ordere successfully",
+            msg:"order successfully",
             ordData:data
         })
         

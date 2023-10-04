@@ -38,7 +38,7 @@ const addToWishlist = (req,res)=>{
                 res.status(200).json({
                     status:true,
                     msg:"product is already wishlisted",
-                    data:wishlistData
+                
                 })
             }).catch((err)=>{
                 res.status(500).json({

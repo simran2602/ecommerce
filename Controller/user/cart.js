@@ -27,7 +27,7 @@ const getCart = (req,res)=>{
         
         {
             $match:{
-                userId:new mongoose.Types.ObjectId(req.params.id)
+                userId:new mongoose.Types.ObjectId(req.user._id)
                 // prodId:new mongoose.Types.ObjectId
             }
         },
@@ -125,7 +125,7 @@ const getCart = (req,res)=>{
 const updateCart=async (req,res)=>{
    await  cart.findOneAndUpdate(
         {
-            _id: new mongoose.Types.ObjectId(req.params.id)
+            _id: new mongoose.Types.ObjectId(req.user._id)
         },
         {
           $set:{

@@ -15,6 +15,9 @@ const permission = [
     {
         url:"/admin/register"
     },
+    {
+        url: "/admin/login"
+    }
     
 ]
 
