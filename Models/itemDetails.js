@@ -12,6 +12,9 @@ const itemDetailsSchema = new mongoose.Schema({
     itemPrice:{
         type:Number
     },
+    itemQty:{
+        type:Number
+    },
     status: {
         type: Boolean,
         default: true

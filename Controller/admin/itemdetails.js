@@ -103,7 +103,7 @@ const deleteItemDetails = (req, res) => {
 
 
 module.exports = {
-    addItemDetails,
+    // addItemDetails,
     getItemDetails,
     updateItemDetails,
     deleteItemDetails

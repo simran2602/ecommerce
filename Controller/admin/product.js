@@ -18,7 +18,8 @@ const addProd = (req, res) => {
                     prodId: prodData._id,
                     itemSize: element.itemSize,
                     itemPrice: element.itemPrice,
-                    itemColor: element.itemColor
+                    itemColor: element.itemColor,
+                    itemQty:element.itemQty
                 }
 
                 new itemDetailsModel(itemObject).save()
@@ -33,7 +34,7 @@ const addProd = (req, res) => {
             res.status(500).json({
                 status: false,
                 msg: "product not added",
-                error: err
+                error: err.message
             })
         })
 
@@ -105,7 +106,8 @@ const updateProd = (req, res) => {
                 prodId: product._id,
                 itemSize: ele.itemSize,
                 itemPrice: ele.itemPrice,
-                itemColor: ele.itemColor
+                itemColor: ele.itemColor,
+                itemQty:ele.itemQty
             }
             new itemDetailsModel(itemObject).save()
 

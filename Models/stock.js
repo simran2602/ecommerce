@@ -3,12 +3,12 @@ const stockSchema = new mongoose.Schema({
     prodId:{
         type:mongoose.Schema.Types.ObjectId
     },
-    prodQty:{
+    itemColor:{
+        type:String
+    },
+    itemQty:{
         type:Number
-    },
-    itemDetails:{
-        type:Object
-    },
+    },    
     createdOn:{
         type:Date,
         default:new Date()

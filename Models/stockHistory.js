@@ -10,8 +10,8 @@ const stockHistorySchema = new mongoose.Schema({
     prodId:{
         type:mongoose.Schema.Types.ObjectId
     },
-    itemDetails:{
-        type:Object
+    itemColor:{
+        type:String
     },
     quantity:{
         type:Number
