@@ -10,6 +10,7 @@ const adminSchema = new mongoose.Schema({
         type:String
     },
     image:{
+        data:Buffer,
         type:String
     },
     token:{

@@ -51,7 +51,6 @@ user.middleware = async (req,res,next) => {
             }
         }
     }
-
 }
 
 module.exports = user

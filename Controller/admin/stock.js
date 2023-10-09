@@ -96,7 +96,8 @@ const orderedItem = (req,res)=>{
                 foreignField:"prodId",
                 localField:"prodId",
                 as:"orderPurchaseDetails"
-            }
+            },
+
         }
 
     ]).then((stockData) => {

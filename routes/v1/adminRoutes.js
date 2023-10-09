@@ -21,9 +21,7 @@ router.put('/update-subcategory', updateSubCat);
 router.delete('/delete-subcategory', deleteSubCat);
 
 //product
-router.post('/add-product', addProd);
 router.get('/get-product', getProd);
-router.put('/update-product/:id', updateProd);
 router.delete('/delete-product/:id', deleteProd);
 
 //itemDetails
@@ -38,9 +36,12 @@ router.get('/get-stock/:id',getStock);
 router.get('/get-order-purchase',orderedItem);
 
 
-
-
 router.use(middleware);
+router.post('/add-product', addProd);
+router.put('/update-product', updateProd);
+
+
+
 
 
 
